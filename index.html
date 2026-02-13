@@ -75,6 +75,13 @@
             background: rgba(15, 23, 42, 0.7);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
     </style>
 </head>
 <body class="bg-cream dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans antialiased">
@@ -283,12 +290,29 @@
             <p class="text-sage-100 text-lg mb-10">
                 Join the waitlist and we'll notify you the moment Gnosis AI launches on the App Store.
             </p>
-            <form action="mailto:hello@sandybrook.io" method="post" enctype="text/plain" class="flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="Enter your email" required class="flex-grow px-6 py-4 rounded-2xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-4 focus:ring-white/20 transition-all">
-                <button type="submit" class="px-8 py-4 bg-slate-900 dark:bg-slate-800 text-white rounded-2xl font-bold hover:bg-slate-800 dark:hover:bg-slate-700 transition-all shadow-lg whitespace-nowrap">
+            <form action="https://formspree.io/f/xykdeabk" method="POST" id="waitlist-form" aria-describedby="waitlist-error" class="flex flex-col sm:flex-row gap-3">
+                <label for="waitlist-email" class="sr-only">Email Address</label>
+                <input type="email" name="email" id="waitlist-email" placeholder="your@email.com" required class="flex-grow px-6 py-4 rounded-2xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-4 focus:ring-white/20 transition-all">
+                <input type="text" name="_gotcha" style="display:none" />
+                <button type="submit" id="waitlist-submit" class="px-8 py-4 bg-slate-900 dark:bg-slate-800 text-white rounded-2xl font-bold hover:bg-slate-800 dark:hover:bg-slate-700 transition-all shadow-lg whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed">
                     Join Waitlist
                 </button>
             </form>
+            
+            <!-- Success Message -->
+            <div id="waitlist-success" style="display:none" tabindex="-1" class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 animate-fade-in focus:outline-none focus:ring-2 focus:ring-white/50">
+                <div class="text-4xl mb-4">🎉</div>
+                <h3 class="text-2xl font-bold mb-2">You're on the list!</h3>
+                <p class="text-sage-100 mb-2" id="success-email-message">
+                    Thanks for joining! We'll email you at <span id="user-email" class="font-semibold text-white"></span> when Gnosis AI launches.
+                </p>
+                <p class="text-sm text-sage-200 italic">Check your inbox for a confirmation email.</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="waitlist-error" role="alert" style="display:none" class="mt-4 p-4 bg-red-500/20 border border-red-500/40 rounded-xl text-white text-sm">
+                Oops! Something went wrong. Please try again or email us at <a href="mailto:hello@sandybrook.io" class="underline">hello@sandybrook.io</a>
+            </div>
             <p class="mt-6 text-sm text-sage-200">No spam, just exciting updates.</p>
         </div>
     </section>
@@ -379,6 +403,61 @@
                     }
                 }
             });
+
+            // Waitlist Form Handling
+            const waitlistForm = document.getElementById('waitlist-form');
+            const waitlistEmail = document.getElementById('waitlist-email');
+            const waitlistSubmit = document.getElementById('waitlist-submit');
+            const waitlistSuccess = document.getElementById('waitlist-success');
+            const waitlistError = document.getElementById('waitlist-error');
+            const userEmailSpan = document.getElementById('user-email');
+
+            if (waitlistForm) {
+                waitlistForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const emailValue = waitlistEmail.value;
+                    const originalButtonText = waitlistSubmit.textContent;
+                    
+                    // Loading State
+                    waitlistSubmit.disabled = true;
+                    waitlistSubmit.textContent = 'Joining...';
+                    waitlistEmail.disabled = true;
+                    waitlistError.style.display = 'none';
+                    
+                    try {
+                        const response = await fetch('https://formspree.io/f/xykdeabk', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                email: emailValue,
+                                _gotcha: waitlistForm.querySelector('input[name="_gotcha"]').value
+                            })
+                        });
+                        
+                        if (response.ok) {
+                            // Success State
+                            waitlistForm.style.display = 'none';
+                            userEmailSpan.textContent = emailValue;
+                            waitlistSuccess.style.display = 'block';
+                            waitlistSuccess.focus();
+                            // Optional: Scroll to success message
+                            waitlistSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            throw new Error('Form submission failed');
+                        }
+                    } catch (error) {
+                        // Error State
+                        waitlistError.style.display = 'block';
+                        waitlistSubmit.disabled = false;
+                        waitlistSubmit.textContent = originalButtonText;
+                        waitlistEmail.disabled = false;
+                    }
+                });
+            }
         });
     </script>
 </body>
