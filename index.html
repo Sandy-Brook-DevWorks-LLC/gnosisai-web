@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gnosis AI - AI Conversations on Your Wrist</title>
-    <meta name="description" content="Gnosis AI brings intelligent voice assistants directly to your Apple Watch. Ask anything, get instant answers—no phone needed.">
-    
+    <meta name="description" content="Gnosis AI brings intelligent voice assistants to Apple Watch and iPhone. Ask anything, get instant answers — powered by advanced AI with 6 expert personas.">
+    <link rel="canonical" href="https://gnosisai.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gnosisai.app/">
+    <meta property="og:title" content="Gnosis AI - AI Conversations on Your Wrist">
+    <meta property="og:description" content="Intelligent voice AI for Apple Watch and iPhone. 6 expert personas, natural AI voices, and conversations that sync — no phone needed.">
+    <meta property="og:image" content="https://gnosisai.app/favicon/web-app-manifest-512x512.png">
+    <meta property="og:site_name" content="Gnosis AI">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Gnosis AI - AI Conversations on Your Wrist">
+    <meta name="twitter:description" content="Intelligent voice AI for Apple Watch and iPhone. 6 expert personas, natural AI voices, and conversations that sync.">
+    <meta name="twitter:image" content="https://gnosisai.app/favicon/web-app-manifest-512x512.png">
+
+    <!-- Additional SEO -->
+    <meta name="keywords" content="Apple Watch AI, voice assistant, AI Apple Watch, Siri alternative, watchOS AI, iPhone AI assistant, voice AI, Gemini Apple Watch">
+    <meta name="author" content="Sandy Brook DevWorks LLC">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#6B8E7E">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
@@ -83,6 +104,30 @@
             animation: fadeIn 0.5s ease-out forwards;
         }
     </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Gnosis AI",
+        "description": "Intelligent voice AI assistant for Apple Watch and iPhone with 6 expert personas, natural AI voices, and iCloud sync.",
+        "url": "https://gnosisai.app",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "watchOS, iOS",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free monthly credits included. Credit packs from $2.99."
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Sandy Brook DevWorks LLC",
+            "url": "https://gnosisai.app"
+        }
+    }
+    </script>
 </head>
 <body class="bg-cream dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans antialiased">
 
@@ -104,7 +149,7 @@
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-400">
                 <a href="#features" class="hover:text-sage transition-colors">Features</a>
                 <a href="#use-cases" class="hover:text-sage transition-colors">Use Cases</a>
-                <a href="#waitlist" class="hover:text-sage transition-colors">Waitlist</a>
+                <a href="#beta" class="hover:text-sage transition-colors">Join Beta</a>
                 
                 <!-- Theme Toggle -->
                 <button id="theme-toggle" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
@@ -141,18 +186,24 @@
                         decoding="async"
                 />
             </div>
+            <div class="mb-6">
+                <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-sage/10 dark:bg-sage/20 text-sage text-sm font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 bg-sage rounded-full mr-2 animate-pulse"></span>
+                    Open Beta
+                </span>
+            </div>
             <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
                 AI Conversations <br><span class="text-sage">on Your Wrist</span>
             </h1>
             <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Gnosis AI brings intelligent voice assistants to Apple Watch. Ask anything, get instant answers—no phone needed.
+                Gnosis AI brings intelligent voice assistants to Apple Watch and iPhone. Choose from 6 expert personas, hear responses in natural AI voices, and get answers anywhere.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button disabled class="px-8 py-4 bg-sage/50 text-white rounded-2xl font-semibold text-lg cursor-not-allowed shadow-lg transition-all">
-                    Coming Soon to App Store
-                </button>
-                <a href="#waitlist" class="px-8 py-4 bg-white dark:bg-slate-900 text-sage border-2 border-sage/20 rounded-2xl font-semibold text-lg hover:bg-sage-50 dark:hover:bg-slate-800 transition-all shadow-sm">
-                    Join Waitlist
+                <a href="#beta" class="px-8 py-4 bg-sage text-white rounded-2xl font-semibold text-lg hover:bg-sage-600 shadow-lg transition-all">
+                    Join the Beta
+                </a>
+                <a href="#features" class="px-8 py-4 bg-white dark:bg-slate-900 text-sage border-2 border-sage/20 rounded-2xl font-semibold text-lg hover:bg-sage-50 dark:hover:bg-slate-800 transition-all shadow-sm">
+                    See Features
                 </a>
             </div>
         </div>
@@ -188,12 +239,12 @@
     <section id="features" class="py-24 bg-cream dark:bg-slate-950">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">Built for the Wrist</h2>
-                <p class="text-lg text-slate-600 dark:text-slate-400">Powerful AI, optimized for your smallest screen.</p>
+                <h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">Built for the Wrist — and Beyond</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-400">Powerful AI on Apple Watch and iPhone, working together seamlessly.</p>
             </div>
-            
+
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature 1 -->
+                <!-- Feature 1: Voice First -->
                 <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-sage/10 rounded-2xl flex items-center justify-center text-sage mb-6">
                         <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2">
@@ -202,10 +253,10 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3 dark:text-white">Voice First</h3>
-                    <p class="text-slate-600 dark:text-slate-400">Natural conversations with AI, optimized for voice input and output.</p>
+                    <p class="text-slate-600 dark:text-slate-400">Tap to speak or hold like a walkie-talkie. Two recording modes designed for how you naturally interact.</p>
                 </div>
 
-                <!-- Feature 2 -->
+                <!-- Feature 2: Watch + iPhone -->
                 <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-sage/10 rounded-2xl flex items-center justify-center text-sage mb-6">
                         <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2">
@@ -213,23 +264,36 @@
                             <path d="M9 6h6M9 10h6" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 dark:text-white">Watch Native</h3>
-                    <p class="text-slate-600 dark:text-slate-400">Built specifically for Apple Watch, no phone required for operation.</p>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Watch + iPhone</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Voice on the Watch, voice or text on iPhone. Conversations sync automatically via iCloud.</p>
                 </div>
 
-                <!-- Feature 3 -->
+                <!-- Feature 3: 6 Expert Personas -->
                 <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-sage/10 rounded-2xl flex items-center justify-center text-sage mb-6">
                         <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2">
-                            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 dark:text-white">Multi-Language</h3>
-                    <p class="text-slate-600 dark:text-slate-400">Speak and receive answers in your preferred language fluently.</p>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">6 Expert Personas</h3>
+                    <p class="text-slate-600 dark:text-slate-400">General assistant, fitness coach, study tutor, travel guide, tech expert, and creative writer.</p>
                 </div>
 
-                <!-- Feature 4 -->
+                <!-- Feature 4: Natural AI Voices -->
+                <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-sage/10 rounded-2xl flex items-center justify-center text-sage mb-6">
+                        <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Natural AI Voices</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Choose from 6 natural-sounding voices. Hear responses spoken aloud, hands-free.</p>
+                </div>
+
+                <!-- Feature 5: Contextual Memory -->
                 <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-sage/10 rounded-2xl flex items-center justify-center text-sage mb-6">
                         <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2">
@@ -237,83 +301,142 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3 dark:text-white">Contextual Memory</h3>
-                    <p class="text-slate-600 dark:text-slate-400">Maintains conversation history for natural, flowing dialogue.</p>
+                    <p class="text-slate-600 dark:text-slate-400">Remembers your conversation context for natural, multi-turn dialogue that flows.</p>
+                </div>
+
+                <!-- Feature 6: Watch Native -->
+                <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-sage/10 rounded-2xl flex items-center justify-center text-sage mb-6">
+                        <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Watch Native</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Works independently on Apple Watch — no phone needed. Includes a watch face complication.</p>
+                </div>
+
+                <!-- Feature 7: Privacy First -->
+                <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-sage/10 rounded-2xl flex items-center justify-center text-sage mb-6">
+                        <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 11V7a5 5 0 0110 0v4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Privacy First</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Conversations stored locally on your devices. No tracking, no ads, no server-side storage.</p>
+                </div>
+
+                <!-- Feature 8: Free Credits -->
+                <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-sage/10 rounded-2xl flex items-center justify-center text-sage mb-6">
+                        <svg viewBox="0 0 24 24" fill="none" class="w-6 h-6" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white">Free Monthly Credits</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Get free credits every month. Need more? Affordable credit packs that never expire.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases -->
+    <!-- Use Cases / Personas -->
     <section id="use-cases" class="py-24 bg-white dark:bg-slate-900">
         <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12 text-slate-900 dark:text-white">Endless Possibilities</h2>
-            <div class="grid sm:grid-cols-2 gap-x-12 gap-y-8">
-                <div class="flex items-start space-x-4">
-                    <span class="text-3xl">🏃‍♂️</span>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">Quick facts while exercising</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Ask for stats, definitions, or trivia without breaking your stride.</p>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4">
-                    <span class="text-3xl">👨‍🍳</span>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">Cooking instructions hands-free</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Get measurements and timers while your hands are busy.</p>
-                    </div>
-                </div>
-                <div class="flex items-start space-x-4">
-                    <span class="text-3xl">🌍</span>
-                    <div>
-                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">Translation on the go</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Break language barriers instantly with real-time wrist translation.</p>
-                    </div>
-                </div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">A Persona for Every Moment</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-400">Switch between 6 specialized assistants, each tailored to help you in different areas of life.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
                 <div class="flex items-start space-x-4">
                     <span class="text-3xl">💡</span>
                     <div>
-                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">General knowledge anywhere</h4>
-                        <p class="text-slate-600 dark:text-slate-400">Your curious companion, ready for any question at any moment.</p>
+                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">General Assistant</h4>
+                        <p class="text-slate-600 dark:text-slate-400">Your go-to for quick facts, definitions, and everyday questions on the fly.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <span class="text-3xl">🏋️</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">Fitness Coach</h4>
+                        <p class="text-slate-600 dark:text-slate-400">Workout ideas, nutrition tips, and motivation right from your wrist mid-exercise.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <span class="text-3xl">📚</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">Study Tutor</h4>
+                        <p class="text-slate-600 dark:text-slate-400">Homework help, concept explanations, and test prep — like a tutor on your wrist.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <span class="text-3xl">✈️</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">Travel Guide</h4>
+                        <p class="text-slate-600 dark:text-slate-400">Destination tips, itinerary planning, and local recommendations while exploring.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <span class="text-3xl">💻</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">Tech Expert</h4>
+                        <p class="text-slate-600 dark:text-slate-400">Programming help, troubleshooting, and software advice when you need it fast.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <span class="text-3xl">✍️</span>
+                    <div>
+                        <h4 class="font-bold text-lg mb-1 text-slate-900 dark:text-white">Creative Writer</h4>
+                        <p class="text-slate-600 dark:text-slate-400">Brainstorm stories, get creative feedback, or draft ideas with a writing partner.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Waitlist Section -->
-    <section id="waitlist" class="py-24 bg-sage text-white relative overflow-hidden">
+    <!-- Beta Signup Section -->
+    <section id="beta" class="py-24 bg-sage text-white relative overflow-hidden">
         <!-- Abstract Decoration -->
         <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
-        
+
         <div class="max-w-xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-4xl font-bold mb-6">Be the first to know</h2>
+            <div class="mb-6">
+                <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/15 text-white text-sm font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+                    Open Beta
+                </span>
+            </div>
+            <h2 class="text-4xl font-bold mb-6">Get Early Access</h2>
             <p class="text-sage-100 text-lg mb-10">
-                Join the waitlist and we'll notify you the moment Gnosis AI launches on the App Store.
+                Gnosis AI is in open beta. Submit your email for a chance to be among the first to test it and help shape the future of AI on your wrist.
             </p>
             <form action="https://formspree.io/f/xykdeabk" method="POST" id="waitlist-form" aria-describedby="waitlist-error" class="flex flex-col sm:flex-row gap-3">
                 <label for="waitlist-email" class="sr-only">Email Address</label>
                 <input type="email" name="email" id="waitlist-email" placeholder="your@email.com" required class="flex-grow px-6 py-4 rounded-2xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-4 focus:ring-white/20 transition-all">
                 <input type="text" name="_gotcha" style="display:none" />
                 <button type="submit" id="waitlist-submit" class="px-8 py-4 bg-slate-900 dark:bg-slate-800 text-white rounded-2xl font-bold hover:bg-slate-800 dark:hover:bg-slate-700 transition-all shadow-lg whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed">
-                    Join Waitlist
+                    Request Beta Access
                 </button>
             </form>
-            
+
             <!-- Success Message -->
             <div id="waitlist-success" style="display:none" tabindex="-1" class="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 animate-fade-in focus:outline-none focus:ring-2 focus:ring-white/50">
                 <div class="text-4xl mb-4">🎉</div>
                 <h3 class="text-2xl font-bold mb-2">You're on the list!</h3>
                 <p class="text-sage-100 mb-2" id="success-email-message">
-                    Thanks for joining! We'll email you at <span id="user-email" class="font-semibold text-white"></span> when Gnosis AI launches.
+                    Thanks for signing up! We'll send a beta invite to <span id="user-email" class="font-semibold text-white"></span> when a spot opens up.
                 </p>
-                <p class="text-sm text-sage-200 italic">Check your inbox for a confirmation email.</p>
+                <p class="text-sm text-sage-200 italic">Keep an eye on your inbox.</p>
             </div>
 
             <!-- Error Message -->
             <div id="waitlist-error" role="alert" style="display:none" class="mt-4 p-4 bg-red-500/20 border border-red-500/40 rounded-xl text-white text-sm">
                 Oops! Something went wrong. Please try again or email us at <a href="mailto:hello@sandybrook.io" class="underline">hello@sandybrook.io</a>
             </div>
-            <p class="mt-6 text-sm text-sage-200">No spam, just exciting updates.</p>
+            <p class="mt-6 text-sm text-sage-200">Limited spots available. No spam, ever.</p>
         </div>
     </section>
 
@@ -421,7 +544,7 @@
                     
                     // Loading State
                     waitlistSubmit.disabled = true;
-                    waitlistSubmit.textContent = 'Joining...';
+                    waitlistSubmit.textContent = 'Submitting...';
                     waitlistEmail.disabled = true;
                     waitlistError.style.display = 'none';
                     
