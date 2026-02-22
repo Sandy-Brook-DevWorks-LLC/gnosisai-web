@@ -138,7 +138,7 @@
         <div class="max-w-4xl mx-auto px-6">
             <header class="mb-16">
                 <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Privacy Policy</h1>
-                <p class="text-slate-600 dark:text-slate-400">Last Updated: February 19, 2026</p>
+                <p class="text-slate-600 dark:text-slate-400">Last Updated: February 21, 2026</p>
             </header>
 
             <div class="grid lg:grid-cols-4 gap-12">
@@ -178,18 +178,32 @@
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">2. INFORMATION WE COLLECT</h2>
                         <div class="space-y-6 text-slate-600 dark:text-slate-400">
                             <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Account Information</h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Gnosis AI uses Sign in with Apple for authentication. We receive your Apple ID user identifier and, if you choose to share it, your name and email address</li>
+                                    <li>You may use Apple's "Hide My Email" feature to keep your email address private</li>
+                                </ul>
+                            </div>
+                            <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Voice Input and Conversations</h3>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li>When you speak to Gnosis AI, your voice is converted to text on your device</li>
-                                    <li>Your questions and the AI responses are temporarily processed to provide the service</li>
-                                    <li>Conversation history is stored locally on your Apple Watch and paired iPhone</li>
+                                    <li>When you speak to Gnosis AI, your voice audio is sent directly to Google Gemini for transcription and response generation</li>
+                                    <li>Your questions and the AI responses are stored in your personal account to maintain conversation history and enable cross-device sync</li>
+                                    <li>Audio recordings (your voice messages and AI-generated voice responses) are stored in your personal account for playback</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Credit and Purchase Information</h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Credit balance and transaction history (purchases, free grants, usage) are stored in your account</li>
+                                    <li>We do NOT process or store payment card details — all purchases are handled by Apple through the App Store</li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Device Information</h3>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li>Basic device information required for app functionality</li>
-                                    <li>No personal identifiers are collected</li>
+                                    <li>Basic device attestation information is used to verify that requests come from legitimate Apple devices (Firebase App Check)</li>
+                                    <li>No personal identifiers, location data, or usage patterns are collected</li>
                                 </ul>
                             </div>
                         </div>
@@ -199,54 +213,103 @@
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">3. HOW WE USE YOUR INFORMATION</h2>
                         <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400">
                             <li>To provide AI-powered responses to your questions</li>
-                            <li>To maintain conversation history for contextual dialogue</li>
-                            <li>To enable the core functionality of the app</li>
+                            <li>To maintain conversation history for contextual, multi-turn dialogue</li>
+                            <li>To sync your conversations and credits between your Apple Watch and iPhone</li>
+                            <li>To store and play back audio recordings of conversations</li>
+                            <li>To manage your credit balance and process free credit grants</li>
                         </ul>
+                        <div class="mt-6 p-6 rounded-2xl bg-sage-50 dark:bg-sage-900/10 border border-sage-100 dark:border-sage-800">
+                            <h3 class="font-bold text-slate-900 dark:text-white mb-2">What We Do NOT Use Your Data For</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li><strong>We do NOT use your conversations, audio, or any personal data to train AI models</strong> — not ours, not anyone else's</li>
+                                <li>We do NOT sell, license, or provide your data to data brokers, aggregators, or any third parties for marketing, profiling, or any purpose beyond operating this app</li>
+                                <li>We do NOT mine your conversations for insights, trends, or analytics</li>
+                                <li>Your data exists solely to provide you with the Gnosis AI service. Period.</li>
+                            </ul>
+                        </div>
                     </section>
 
                     <section id="third-party">
-                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">4. THIRD-PARTY AI SERVICES</h2>
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">4. THIRD-PARTY SERVICES</h2>
                         <div class="space-y-4 text-slate-600 dark:text-slate-400">
-                            <p>
-                                Gnosis AI uses Google Gemini, accessed through Firebase AI Logic, to process your requests and generate responses. Your conversation data is sent to Google's servers for processing.
-                            </p>
-                            <p>
-                                Google Gemini processes your questions to generate text responses and speech audio. Google has its own privacy policy:
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Google Gemini (AI Processing)</h3>
+                                <p>
+                                    Gnosis AI uses Google Gemini, accessed through Firebase AI Logic, to process your requests and generate responses. Your voice audio and/or text is sent to Google's servers for processing and response generation, including text-to-speech audio output.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Firebase (Data Infrastructure)</h3>
+                                <p>
+                                    We use Google Firebase services to securely store and sync your data:
+                                </p>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li><strong>Firebase Auth</strong> — manages your Sign in with Apple identity</li>
+                                    <li><strong>Cloud Firestore</strong> — stores your conversation messages and credit balance</li>
+                                    <li><strong>Firebase Storage</strong> — stores audio recordings for playback</li>
+                                    <li><strong>Firebase App Check</strong> — verifies that requests come from legitimate Apple devices</li>
+                                </ul>
+                                <p class="mt-2">
+                                    All Firebase data is stored in Google Cloud infrastructure located in the United States (us-central1). Your data is isolated under your authenticated user account and is not accessible to other users.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Apple (Purchases and Settings)</h3>
+                                <p>
+                                    In-app purchases are processed entirely by Apple through the App Store. Voice and persona preferences are synced between devices using Apple's iCloud Key-Value Store.
+                                </p>
+                            </div>
+                            <p class="mt-2">
+                                Relevant privacy policies:
                             </p>
                             <ul class="list-disc pl-5 space-y-2">
                                 <li>Google Privacy Policy: <a href="https://policies.google.com/privacy" class="text-sage hover:underline">https://policies.google.com/privacy</a></li>
                                 <li>Google Cloud/Firebase Terms: <a href="https://firebase.google.com/terms" class="text-sage hover:underline">https://firebase.google.com/terms</a></li>
+                                <li>Apple Privacy Policy: <a href="https://www.apple.com/legal/privacy/" class="text-sage hover:underline">https://www.apple.com/legal/privacy/</a></li>
                             </ul>
-                            <p>
-                                We do not control how Google handles data sent to their services. Please review their privacy policy to understand their practices.
-                            </p>
-                            <p class="font-medium text-slate-900 dark:text-white">
-                                Important: Your conversations are sent to Google Gemini in real-time to generate responses. This data transmission is necessary for the app to function.
+                            <p class="font-medium text-slate-900 dark:text-white mt-4">
+                                Important: Your conversations are sent to Google Gemini in real-time to generate responses. This data transmission is necessary for the app to function. No data from any of these services is used by Sandy Brook DevWorks for AI training, marketing, or any purpose beyond operating Gnosis AI.
                             </p>
                         </div>
                     </section>
 
                     <section id="storage">
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">5. DATA STORAGE AND RETENTION</h2>
-                        <div class="space-y-4 text-slate-600 dark:text-slate-400">
-                            <h3 class="font-bold text-slate-900 dark:text-white">Local Storage Only</h3>
-                            <ul class="list-disc pl-5 space-y-2">
-                                <li>All conversation history is stored locally on your Apple Watch and paired iPhone</li>
-                                <li>We do NOT store your conversations on our servers</li>
-                                <li>Data is stored using standard Apple frameworks (SwiftData with iCloud sync)</li>
-                                <li>You can delete conversation history at any time within the app</li>
-                                <li>All data is automatically deleted when you uninstall the app</li>
-                            </ul>
+                        <div class="space-y-6 text-slate-600 dark:text-slate-400">
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Where Your Data Lives</h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Your conversation messages, credit balance, and audio recordings are stored in Google Firebase (Cloud Firestore and Firebase Storage) under your authenticated user account</li>
+                                    <li>Data is stored in Google Cloud infrastructure in the United States (us-central1)</li>
+                                    <li>Your data is isolated to your account and is not accessible to other users or to Sandy Brook DevWorks staff in the normal course of operations</li>
+                                    <li>Voice and persona preferences are synced via Apple's iCloud Key-Value Store</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Data Control</h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>You can delete individual messages or all conversation history at any time within the app</li>
+                                    <li>You can request complete account and data deletion by contacting us at <a href="mailto:hello@sandybrook.io" class="text-sage hover:underline">hello@sandybrook.io</a></li>
+                                    <li>Uninstalling the app removes local data from your devices, but your cloud-stored data remains until you request deletion</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">No Data Harvesting</h3>
+                                <p>
+                                    We want to be unambiguous: <strong>your data is never harvested, sold, or shared with data aggregators.</strong> It is never used to train AI models. It is never analyzed for advertising or profiling purposes. Your conversations and audio exist in Firebase solely to provide you with the Gnosis AI service, and for no other reason.
+                                </p>
+                            </div>
                         </div>
                     </section>
 
                     <section id="sharing">
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">6. DATA SHARING</h2>
                         <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400">
-                            <li>We do NOT sell, rent, or share your personal information with third parties for marketing purposes</li>
+                            <li>We do NOT sell, rent, license, or share your personal information with third parties for marketing, advertising, profiling, or AI training purposes</li>
+                            <li>We do NOT provide your data to data brokers or aggregators under any circumstances</li>
                             <li>We do NOT use advertising or tracking technologies</li>
-                            <li>Data is only shared with AI service providers as necessary to generate responses</li>
-                            <li>We do receive aggregate statistics or analytics from Apple App Store Connect (downloads, crashes, basic usage)</li>
+                            <li>Data is shared only with Google Firebase/Gemini as necessary to operate the app (data storage, AI response generation)</li>
+                            <li>We receive only aggregate, non-identifying statistics from Apple App Store Connect (download counts, crash reports, basic usage metrics)</li>
                         </ul>
                     </section>
 
@@ -272,21 +335,36 @@
                         <div class="space-y-2 text-slate-600 dark:text-slate-400">
                             <p>You have the right to:</p>
                             <ul class="list-disc pl-5 space-y-2">
-                                <li>Delete all conversation history within the app settings</li>
+                                <li>Delete individual messages or all conversation history within the app</li>
+                                <li>Request complete deletion of your account and all associated data by emailing <a href="mailto:hello@sandybrook.io" class="text-sage hover:underline">hello@sandybrook.io</a></li>
+                                <li>Sign out at any time from the iPhone app Settings</li>
                                 <li>Stop using the app at any time</li>
-                                <li>Remove all locally stored data by deleting the app</li>
                                 <li>Contact us with privacy questions or concerns</li>
                             </ul>
+                            <p class="mt-4">
+                                Upon receiving an account deletion request, we will delete all your data from Firebase (messages, audio recordings, credit history, and account information) within 30 days.
+                            </p>
                         </div>
                     </section>
 
                     <section id="security">
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">10. DATA SECURITY</h2>
-                        <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400">
-                            <li>Conversations are transmitted securely (HTTPS/TLS) to AI service providers</li>
-                            <li>Local data is protected by your device's security features</li>
-                            <li>We implement industry-standard security practices</li>
-                        </ul>
+                        <div class="space-y-4 text-slate-600 dark:text-slate-400">
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>All data is transmitted over HTTPS/TLS encrypted connections</li>
+                                <li>Firebase App Check verifies that every request originates from a legitimate Apple device, preventing unauthorized API access</li>
+                                <li>Firebase Auth ensures that only you can access your data through authenticated sessions</li>
+                                <li>Firestore security rules enforce that users can only read and write their own data — no user can access another user's conversations, credits, or audio</li>
+                                <li>Firebase Storage security rules restrict audio file access to the owning user, with a 5MB file size limit</li>
+                                <li>No API keys are stored on or distributed to client devices</li>
+                            </ul>
+                            <div class="p-6 rounded-2xl bg-sage-50 dark:bg-sage-900/10 border border-sage-100 dark:border-sage-800">
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Encryption at Rest</h3>
+                                <p>
+                                    Google Firebase provides encryption in transit (TLS) for all data. We are actively working to implement additional encryption-at-rest measures for stored conversations and audio beyond the default protections provided by Google Cloud infrastructure. This is a near-term priority and we will update this policy when it is in place.
+                                </p>
+                            </div>
+                        </div>
                     </section>
 
                     <section id="transfers">
@@ -315,9 +393,19 @@
 
                     <section id="california">
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">13. CALIFORNIA PRIVACY RIGHTS</h2>
-                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-                            California residents: We do not sell personal information. You have rights under CCPA to request information about data collection and deletion.
-                        </p>
+                        <div class="space-y-4 text-slate-600 dark:text-slate-400">
+                            <p>
+                                California residents: We do not sell personal information. We do not share personal information for cross-context behavioral advertising. You have rights under CCPA/CPRA to:
+                            </p>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Request information about data we collect about you</li>
+                                <li>Request deletion of your data</li>
+                                <li>Not be discriminated against for exercising your privacy rights</li>
+                            </ul>
+                            <p>
+                                To exercise these rights, contact us at <a href="mailto:hello@sandybrook.io" class="text-sage hover:underline">hello@sandybrook.io</a>.
+                            </p>
+                        </div>
                     </section>
 
                     <section id="contact">
