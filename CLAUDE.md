@@ -68,18 +68,22 @@ gnosisai-web/
 
 ### Privacy Commitments (reflected in privacy.html)
 
+- **No PII collected** — only Apple's opaque user identifier; no name, email, phone, or location
 - User data is **never** sold, rented, or shared with data brokers or aggregators
 - User data is **never** used for AI model training
-- Data stored in Firebase (Firestore + Storage) in `us-central1`
-- Authentication via Sign in with Apple (Firebase Auth)
-- Encryption at rest is a stated near-term priority
+- **Client-side end-to-end encryption** — AES-256-GCM via Apple CryptoKit; Firestore/Storage only store ciphertext
+- **User-scoped encryption keys** — stored in iCloud Keychain, never leave user's devices
+- Data stored in Firebase (Firestore + Storage) in `nam5` (multi-region US, 99.999% SLA)
+- Authentication via Sign in with Apple with cryptographic nonce (Firebase Auth)
+- Apple ID credential revocation detection (auto-sign out)
+- Credit operations via tamper-proof Cloud Functions (server-side validation)
 - Account deletion available via email (hello@sandybrook.io), 30-day commitment
 - No analytics, no tracking, no ads
 
 ### Third-Party Services (disclosed in privacy policy)
 
 - **Google Gemini** (via Firebase AI Logic) — processes voice/text queries
-- **Firebase** — Auth, Firestore, Storage, App Check
+- **Firebase** — Auth, Firestore, Storage, App Check, Cloud Functions (credit management)
 - **Apple** — Sign in with Apple, In-App Purchases, iCloud KV (settings only)
 
 ## Conventions

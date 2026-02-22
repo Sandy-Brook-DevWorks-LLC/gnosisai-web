@@ -138,7 +138,7 @@
         <div class="max-w-4xl mx-auto px-6">
             <header class="mb-16">
                 <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Privacy Policy</h1>
-                <p class="text-slate-600 dark:text-slate-400">Last Updated: February 21, 2026</p>
+                <p class="text-slate-600 dark:text-slate-400">Last Updated: February 22, 2026</p>
             </header>
 
             <div class="grid lg:grid-cols-4 gap-12">
@@ -172,6 +172,9 @@
                         <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                             Gnosis AI ("we," "our," or "the App") is committed to protecting your privacy. This policy explains how we handle your information when you use our Apple Watch and iPhone application.
                         </p>
+                        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
+                            <strong>Our core privacy principle:</strong> Gnosis AI does not collect, store, or process any personally identifiable information (PII). We do not know your name, email address, phone number, or location. All conversation content and audio is encrypted on your device before it reaches our servers. We follow security best practices as recommended by Apple and Google.
+                        </p>
                     </section>
 
                     <section id="collection">
@@ -180,8 +183,8 @@
                             <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Account Information</h3>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li>Gnosis AI uses Sign in with Apple for authentication. We receive your Apple ID user identifier and, if you choose to share it, your name and email address</li>
-                                    <li>You may use Apple's "Hide My Email" feature to keep your email address private</li>
+                                    <li>Gnosis AI uses Sign in with Apple for authentication. We receive only your Apple-generated user identifier — <strong>we do not request or store your name, email address, or any other personally identifiable information (PII)</strong></li>
+                                    <li>Your Apple-generated user identifier is an opaque, anonymous token that cannot be used to identify you personally</li>
                                 </ul>
                             </div>
                             <div>
@@ -244,13 +247,14 @@
                                     We use Google Firebase services to securely store and sync your data:
                                 </p>
                                 <ul class="list-disc pl-5 space-y-2 mt-2">
-                                    <li><strong>Firebase Auth</strong> — manages your Sign in with Apple identity</li>
-                                    <li><strong>Cloud Firestore</strong> — stores your conversation messages and credit balance</li>
-                                    <li><strong>Firebase Storage</strong> — stores audio recordings for playback</li>
-                                    <li><strong>Firebase App Check</strong> — verifies that requests come from legitimate Apple devices</li>
+                                    <li><strong>Firebase Auth</strong> — manages your Sign in with Apple identity (with cryptographic nonce for replay attack prevention)</li>
+                                    <li><strong>Cloud Firestore</strong> — stores your encrypted conversation messages and credit balance</li>
+                                    <li><strong>Firebase Storage</strong> — stores encrypted audio recordings for playback</li>
+                                    <li><strong>Cloud Functions</strong> — handles credit operations via tamper-proof server-side transactions</li>
+                                    <li><strong>Firebase App Check</strong> — verifies that requests come from legitimate Apple devices (App Attest on iPhone, DeviceCheck on Apple Watch)</li>
                                 </ul>
                                 <p class="mt-2">
-                                    All Firebase data is stored in Google Cloud infrastructure located in the United States (us-central1). Your data is isolated under your authenticated user account and is not accessible to other users.
+                                    All Firebase data is stored in Google Cloud infrastructure in a multi-region US deployment (nam5) for high availability (99.999% SLA). Your data is isolated under your authenticated user account and is not accessible to other users.
                                 </p>
                             </div>
                             <div>
@@ -280,7 +284,7 @@
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Where Your Data Lives</h3>
                                 <ul class="list-disc pl-5 space-y-2">
                                     <li>Your conversation messages, credit balance, and audio recordings are stored in Google Firebase (Cloud Firestore and Firebase Storage) under your authenticated user account</li>
-                                    <li>Data is stored in Google Cloud infrastructure in the United States (us-central1)</li>
+                                    <li>Data is stored in Google Cloud infrastructure in a multi-region US deployment for high availability and durability</li>
                                     <li>Your data is isolated to your account and is not accessible to other users or to Sandy Brook DevWorks staff in the normal course of operations</li>
                                     <li>Voice and persona preferences are synced via Apple's iCloud Key-Value Store</li>
                                 </ul>
@@ -350,18 +354,25 @@
                     <section id="security">
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">10. DATA SECURITY</h2>
                         <div class="space-y-4 text-slate-600 dark:text-slate-400">
+                            <p>We follow security best practices as recommended by Apple and Google, implementing defense in depth across every layer of the app:</p>
                             <ul class="list-disc pl-5 space-y-2">
                                 <li>All data is transmitted over HTTPS/TLS encrypted connections</li>
-                                <li>Firebase App Check verifies that every request originates from a legitimate Apple device, preventing unauthorized API access</li>
-                                <li>Firebase Auth ensures that only you can access your data through authenticated sessions</li>
-                                <li>Firestore security rules enforce that users can only read and write their own data — no user can access another user's conversations, credits, or audio</li>
-                                <li>Firebase Storage security rules restrict audio file access to the owning user, with a 5MB file size limit</li>
-                                <li>No API keys are stored on or distributed to client devices</li>
+                                <li><strong>Client-side end-to-end encryption</strong> — all conversation text and audio files are encrypted on your device using AES-256-GCM (via Apple CryptoKit) before leaving the device. Firestore and Firebase Storage only ever store ciphertext. Your encryption key is stored in iCloud Keychain and never leaves your devices</li>
+                                <li><strong>No PII stored server-side</strong> — we do not collect, store, or process personally identifiable information. Your account is identified only by an opaque Apple-generated token</li>
+                                <li><strong>Sign in with Apple with cryptographic nonce</strong> — prevents token replay attacks, following Apple's recommended authentication practices</li>
+                                <li><strong>Apple ID credential revocation</strong> — the app automatically detects and responds if you revoke Gnosis AI access in your Apple ID settings, immediately signing you out</li>
+                                <li><strong>Firebase App Check</strong> — verifies that every request originates from a legitimate Apple device using hardware attestation (App Attest on iPhone, DeviceCheck on Apple Watch), preventing unauthorized API access</li>
+                                <li><strong>Firebase Auth</strong> — ensures that only you can access your data through authenticated sessions</li>
+                                <li><strong>Firestore security rules</strong> — enforce that users can only read and write their own data. Credit operations are server-side only (read-only for clients) via Cloud Functions with tamper-proof validation</li>
+                                <li><strong>Firebase Storage security rules</strong> — restrict audio file access to the owning user, with a 5MB file size limit and content type validation</li>
+                                <li><strong>User-scoped encryption keys</strong> — encryption keys are scoped to your user account, preventing cross-user key sharing on shared devices</li>
+                                <li><strong>Structured logging with privacy annotations</strong> — all diagnostic logs use Apple's os.Logger framework with <code>privacy: .private</code> annotations, ensuring sensitive data (balances, transaction IDs) is redacted in release builds</li>
+                                <li>No API keys are stored on or distributed to client devices — Firebase manages all service authentication server-side</li>
                             </ul>
                             <div class="p-6 rounded-2xl bg-sage-50 dark:bg-sage-900/10 border border-sage-100 dark:border-sage-800">
-                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Encryption at Rest</h3>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">End-to-End Encryption</h3>
                                 <p>
-                                    Google Firebase provides encryption in transit (TLS) for all data. We are actively working to implement additional encryption-at-rest measures for stored conversations and audio beyond the default protections provided by Google Cloud infrastructure. This is a near-term priority and we will update this policy when it is in place.
+                                    All conversation messages and audio files are encrypted on your device using <strong>AES-256-GCM</strong> (via Apple CryptoKit) before being stored in Firebase. This means that even if Firebase data were accessed, it would be unreadable without your personal encryption key, which is stored exclusively in your iCloud Keychain and syncs only to your own Apple devices. Sandy Brook DevWorks cannot read your conversations or listen to your audio recordings.
                                 </p>
                             </div>
                         </div>
