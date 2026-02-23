@@ -77,7 +77,7 @@ gnosisai-web/
 - Authentication via Sign in with Apple with cryptographic nonce (Firebase Auth)
 - Apple ID credential revocation detection (auto-sign out)
 - Credit operations via tamper-proof Cloud Functions (server-side validation)
-- Account deletion available via email (hello@sandybrook.io), 30-day commitment
+- Users can delete their conversation data (messages + audio) directly within the app
 - No analytics, no tracking, no ads
 
 ### Third-Party Services (disclosed in privacy policy)
