@@ -47,11 +47,14 @@ gnosisai-web/
   support.html             # Support/contact page with FAQ
   favicon/
     apple-touch-icon.png   # 180x180
+    favicon-96x96.png      # 96x96
     favicon-32x32.png      # 32x32
     favicon-16x16.png      # 16x16
-    favicon.ico            # Multi-size ICO
+    favicon.ico            # Multi-size ICO (16, 32, 48)
+    favicon.svg            # SVG favicon
     site.webmanifest        # PWA manifest (name, icons, theme)
     safari-pinned-tab.svg  # Safari pinned tab icon
+    web-app-manifest-*.png # PWA manifest icons (192, 512)
     android-chrome-*.png   # Android home screen icons
 ```
 
@@ -88,10 +91,10 @@ gnosisai-web/
 
 ## Conventions
 
-- All pages are self-contained HTML files with inline CSS and JS (no external stylesheets or scripts beyond Google Fonts)
+- All pages are self-contained HTML files using Tailwind CSS CDN with minimal inline CSS (no external stylesheets or scripts beyond Tailwind and Google Fonts)
 - Responsive design with mobile-first approach
-- Dark/light mode support via `prefers-color-scheme` media query
-- Sage green accent color matching the app (`#648B6A` light / `#89B68E` dark)
+- Dark/light mode support via Tailwind `dark:` classes (toggled by class, persisted in localStorage)
+- Sage green accent color matching the app (`#6B8E7E` primary)
 - Scroll-triggered fade-in animations via IntersectionObserver
 - Contact form uses Formspree (`https://formspree.io/f/...`)
 - FAQ uses native `<details>/<summary>` elements (no JS needed)
@@ -108,7 +111,7 @@ Changes appear at `https://gnosisai.app` within minutes.
 
 ## Known Issues
 
-- **No build step** — All CSS is inline in each HTML file. Changes to shared styles (nav, footer, colors) must be manually replicated across all three files.
+- **No build step** — All pages use Tailwind CSS CDN with shared config inline in each file. Changes to shared styles (nav, footer, colors, Tailwind config) must be manually replicated across all three files.
 - **Formspree contact form** — Requires a Formspree account. The form action URL is hardcoded in `support.html`.
 - **App Store link** — Currently uses a placeholder `#` href on the App Store badge. Must be updated with the real App Store URL after approval.
 - **Sitemap `lastmod` dates** — Must be manually updated in `sitemap.xml` when pages are modified.
