@@ -1,6 +1,6 @@
-# Gnosis AI — Landing Site
+# CogniWatch — Landing Site
 
-Static marketing and support website for the [Gnosis AI](https://gnosisai.app) iOS/watchOS voice AI assistant.
+Static marketing and support website for the [CogniWatch](https://gnosisai.app) iOS/watchOS voice AI assistant.
 
 ## Pages
 

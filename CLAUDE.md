@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Static landing site for the GnosisAI iOS/watchOS voice AI assistant app. Hosted on GitHub Pages with a custom domain (`gnosisai.app`). Three pages: home (app marketing), privacy policy (legal/compliance), and support (contact form + FAQ).
+Static landing site for the CogniWatch iOS/watchOS voice AI assistant app. Hosted on GitHub Pages with a custom domain (`gnosisai.app`). Three pages: home (app marketing), privacy policy (legal/compliance), and support (contact form + FAQ).
 
 - **Domain:** gnosisai.app (CNAME)
 - **Hosting:** GitHub Pages (static HTML/CSS/JS)
