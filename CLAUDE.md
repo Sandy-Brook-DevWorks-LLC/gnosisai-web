@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-Static landing site for the CogniWatch iOS/watchOS voice AI assistant app. Hosted on GitHub Pages with a custom domain (`gnosisai.app`). Three pages: home (app marketing), privacy policy (legal/compliance), and support (contact form + FAQ).
+Static landing site for the CogniWatch iOS/watchOS voice AI assistant app. Hosted on GitHub Pages with a custom domain (`cogniwatch.sandybrook.io`). Three pages: home (app marketing), privacy policy (legal/compliance), and support (contact form + FAQ).
 
-- **Domain:** gnosisai.app (CNAME)
+- **Domain:** cogniwatch.sandybrook.io (CNAME)
 - **Hosting:** GitHub Pages (static HTML/CSS/JS)
 - **Repo:** `cloudreyes/gnosisai-web` — local path: `~/Repos/gnosisai-web`
 - **Company:** Sandy Brook DevWorks LLC (Texas)
@@ -19,7 +19,7 @@ Static landing site for the CogniWatch iOS/watchOS voice AI assistant app. Hoste
 
 - **HTML/CSS/JS** — No build step, no framework, no bundler
 - **Hosting:** GitHub Pages (static, served from `main` branch root)
-- **Domain:** Custom domain via `CNAME` file (`gnosisai.app`)
+- **Domain:** Custom domain via `CNAME` file (`cogniwatch.sandybrook.io`)
 - **SEO:** `sitemap.xml`, `robots.txt`, Open Graph + Twitter Card meta tags, JSON-LD structured data
 - **Fonts:** Google Fonts (Inter)
 - **Icons:** Favicon set in `favicon/` directory (multiple sizes + `site.webmanifest`)
@@ -29,9 +29,9 @@ Static landing site for the CogniWatch iOS/watchOS voice AI assistant app. Hoste
 
 | File | URL | Purpose |
 |------|-----|---------|
-| `index.html` | `gnosisai.app/` | Marketing landing page — app features, screenshots, App Store link |
-| `privacy.html` | `gnosisai.app/privacy.html` | Privacy policy — 14 sections, CCPA/CPRA compliant |
-| `support.html` | `gnosisai.app/support.html` | Contact form (Formspree) + FAQ sidebar |
+| `index.html` | `cogniwatch.sandybrook.io/` | Marketing landing page — app features, screenshots, App Store link |
+| `privacy.html` | `cogniwatch.sandybrook.io/privacy.html` | Privacy policy — 14 sections, CCPA/CPRA compliant |
+| `support.html` | `cogniwatch.sandybrook.io/support.html` | Contact form (Formspree) + FAQ sidebar |
 
 ## Project Structure
 
@@ -39,7 +39,7 @@ Static landing site for the CogniWatch iOS/watchOS voice AI assistant app. Hoste
 gnosisai-web/
   CLAUDE.md               # This file
   README.md                # Public-facing documentation
-  CNAME                    # Custom domain: gnosisai.app
+  CNAME                    # Custom domain: cogniwatch.sandybrook.io
   robots.txt               # Allow all crawlers, sitemap reference
   sitemap.xml              # 3 URLs (index, privacy, support)
   index.html               # Landing page
@@ -107,7 +107,7 @@ Push to `main` branch. GitHub Pages auto-deploys. No build step required.
 git add -A && git commit -m "message" && git push
 ```
 
-Changes appear at `https://gnosisai.app` within minutes.
+Changes appear at `https://cogniwatch.sandybrook.io` within minutes.
 
 ## Known Issues
 

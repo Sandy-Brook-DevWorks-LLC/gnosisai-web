@@ -1,17 +1,17 @@
 # CogniWatch — Landing Site
 
-Static marketing and support website for the [CogniWatch](https://gnosisai.app) iOS/watchOS voice AI assistant.
+Static marketing and support website for the [CogniWatch](https://cogniwatch.sandybrook.io) iOS/watchOS voice AI assistant.
 
 ## Pages
 
-- **[Home](https://gnosisai.app/)** — App features, screenshots, App Store download link
-- **[Privacy Policy](https://gnosisai.app/privacy.html)** — How we handle user data (CCPA/CPRA compliant)
-- **[Support](https://gnosisai.app/support.html)** — Contact form and frequently asked questions
+- **[Home](https://cogniwatch.sandybrook.io/)** — App features, screenshots, App Store download link
+- **[Privacy Policy](https://cogniwatch.sandybrook.io/privacy.html)** — How we handle user data (CCPA/CPRA compliant)
+- **[Support](https://cogniwatch.sandybrook.io/support.html)** — Contact form and frequently asked questions
 
 ## Tech Stack
 
 - Plain HTML, CSS, and JavaScript — no framework, no build step
-- Hosted on GitHub Pages with custom domain (`gnosisai.app`)
+- Hosted on GitHub Pages with custom domain (`cogniwatch.sandybrook.io`)
 - Responsive design with dark/light mode support
 - Google Fonts (Inter)
 
@@ -29,7 +29,7 @@ Then open [http://localhost:8080](http://localhost:8080).
 
 ## Deployment
 
-Push to `main`. GitHub Pages deploys automatically. Changes are live at [gnosisai.app](https://gnosisai.app) within minutes.
+Push to `main`. GitHub Pages deploys automatically. Changes are live at [cogniwatch.sandybrook.io](https://cogniwatch.sandybrook.io) within minutes.
 
 ## Related Repos
 
