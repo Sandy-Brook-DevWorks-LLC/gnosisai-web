@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Static landing site for the KnowItOwl! iOS/watchOS voice AI assistant app. Hosted on GitHub Pages with a custom domain (`knowitowl.sandybrook.io`). Three pages: home (app marketing), privacy policy (legal/compliance), and support (contact form + FAQ).
+Static landing site for the KnowItOwl! iOS/watchOS voice Q&A app. Hosted on GitHub Pages with a custom domain (`knowitowl.sandybrook.io`). Three pages: home (app marketing), privacy policy (legal/compliance), and support (contact form + FAQ).
 
 - **Domain:** knowitowl.sandybrook.io (CNAME)
 - **Hosting:** GitHub Pages (static HTML/CSS/JS)

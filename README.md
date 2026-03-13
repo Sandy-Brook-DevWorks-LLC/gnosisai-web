@@ -1,6 +1,6 @@
 # KnowItOwl! — Landing Site
 
-Static marketing and support website for the [KnowItOwl!](https://knowitowl.sandybrook.io) iOS/watchOS voice AI assistant.
+Static marketing and support website for the [KnowItOwl!](https://knowitowl.sandybrook.io) iOS/watchOS voice Q&A app.
 
 ## Pages
 
