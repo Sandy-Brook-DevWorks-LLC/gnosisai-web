@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cogniwatch.sandybrook.io/sitemap.xml
+Sitemap: https://knowitowl.sandybrook.io/sitemap.xml
