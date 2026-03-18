@@ -116,3 +116,7 @@ Changes appear at `https://knowitowl.sandybrook.io` within minutes.
 - **Formspree contact form** — Requires a Formspree account. The form action URL is hardcoded in `support.html`.
 - **App Store link** — Currently uses a placeholder `#` href on the App Store badge. Must be updated with the real App Store URL after approval.
 - **Sitemap `lastmod` dates** — Must be manually updated in `sitemap.xml` when pages are modified.
+
+## Changelog
+
+- **2026-03-18:** Updated `privacy.html` section 4 (Google Gemini / AI Processing) to explicitly enumerate data types sent to Google's servers (voice audio recordings, text messages, conversation history up to 10 messages), reference Google Cloud Data Processing Addendum for equivalent protection, and note that the app obtains explicit in-app consent before sending data — addressing App Store rejection Guidelines 5.1.1(i) & 5.1.2(i).

@@ -238,7 +238,18 @@
                             <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Google Gemini (AI Processing)</h3>
                                 <p>
-                                    KnowItOwl! uses Google Gemini, accessed through Firebase AI Logic, to process your requests and generate responses. Your voice audio and/or text is sent to Google's servers for processing and response generation, including text-to-speech audio output.
+                                    KnowItOwl! uses Google Gemini (via Firebase AI Logic / Google Vertex AI) to process your requests and generate responses. The following data is sent to Google's servers each time you ask a question:
+                                </p>
+                                <ul class="list-disc pl-5 space-y-2 mt-2">
+                                    <li><strong>Voice audio recordings</strong> — the AAC audio captured when you speak a question (voice input only)</li>
+                                    <li><strong>Text messages</strong> — the text you type when using text input</li>
+                                    <li><strong>Conversation history</strong> — up to 10 recent messages (questions and answers) to maintain context across a conversation</li>
+                                </ul>
+                                <p class="mt-2">
+                                    This data is transmitted to Google's Gemini AI service solely to generate a response to your question and to synthesize text-to-speech audio output. <strong>Your data is not used to train AI models.</strong> Google's handling of this data is governed by the <a href="https://policies.google.com/privacy" class="text-sage hover:underline">Google Privacy Policy</a> and <a href="https://cloud.google.com/terms/data-processing-addendum" class="text-sage hover:underline">Google Cloud Data Processing Addendum</a>, which provide equivalent data protection to the terms under which Sandy Brook DevWorks LLC operates.
+                                </p>
+                                <p class="mt-2">
+                                    The app obtains your explicit consent before sending any data to Google Gemini, and you may withdraw consent at any time by signing out of the app.
                                 </p>
                             </div>
                             <div>
