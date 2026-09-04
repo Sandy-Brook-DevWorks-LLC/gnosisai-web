@@ -402,7 +402,7 @@
                                 <li><strong>Server-side credit validation</strong> — the backend verifies signed App Store transactions and performs credit operations in tamper-resistant Firestore transactions; clients cannot directly grant credits</li>
                                 <li><strong>Firebase Storage security rules</strong> — restrict audio file access to the owning user, with a 5MB file size limit and content type validation</li>
                                 <li><strong>User-scoped encryption keys</strong> — encryption keys are scoped to your user account, preventing cross-user key sharing on shared devices</li>
-                                <li><strong>Structured logging with privacy annotations</strong> — all diagnostic logs use Apple's os.Logger framework with <code>privacy: .private</code> annotations, ensuring sensitive data (balances, transaction IDs) is redacted in release builds</li>
+                                <li><strong>Privacy-filtered structured logging</strong> — diagnostics use allow-listed event names and Apple's os.Logger privacy annotations. Questions, transcripts, answers, audio, authentication tokens, and purchase transaction IDs are excluded from diagnostic events, while sensitive local values are marked private</li>
                                 <li>No Google AI service credentials are stored on or distributed to client devices; provider access is restricted to the authenticated backend</li>
                             </ul>
                             <div class="p-6 rounded-2xl bg-sage-50 dark:bg-sage-900/10 border border-sage-100 dark:border-sage-800">
