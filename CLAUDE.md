@@ -65,30 +65,32 @@ gnosisai-web/
 - **Welcome credits:** 20 credits for new users (one-time)
 - **Monthly free credits:** 5 credits per month
 - **Credit packs (consumable, never expire):**
-  - Standard: 50 credits / $2.99
-  - Popular: 100 credits / $4.99
-  - Power: 200 credits / $7.99
+  - Standard: 30 credits
+  - Popular: 60 credits
+  - Power: 120 credits
+  - App Store Connect supplies the localized storefront prices
 
 ### Privacy Commitments (reflected in privacy.html)
 
-- **No PII collected** — only Apple's opaque user identifier; no name, email, phone, or location
+- The app does not request a name, email address, phone number, contacts, advertising identifier, or location
+- Automatic identity uses Apple's signed App Transaction to derive a one-way hashed, app-scoped user ID; there is no login screen
 - User data is **never** sold, rented, or shared with data brokers or aggregators
 - User data is **never** used for AI model training
-- **Client-side end-to-end encryption** — AES-256-GCM via Apple CryptoKit; Firestore/Storage only store ciphertext
+- **Client-side encryption for saved content** — AES-256-GCM via Apple CryptoKit; Firestore/Storage only store ciphertext. Real-time AI processing data is sent over HTTPS in readable form
 - **User-scoped encryption keys** — stored in iCloud Keychain, never leave user's devices
 - Data stored in Firebase (Firestore + Storage) in `nam5` (multi-region US, 99.999% SLA)
-- Authentication via Sign in with Apple with cryptographic nonce (Firebase Auth)
-- Apple ID credential revocation detection (auto-sign out)
-- Credit operations via tamper-proof Cloud Functions (server-side validation)
-- Users can delete their conversation data (messages + audio) directly within the app
-- Firebase Crashlytics for crash/error reporting only (no PII, no conversation content)
+- Firebase Auth sessions are minted by the authenticated backend for the app-scoped App Store identity
+- Credit operations and signed StoreKit transaction validation run through the .NET v4 backend
+- Delete Personal Data removes messages, audio, the encryption key, pending interaction records, and the Firebase user; credit balances, ledgers, and redeemed transaction claims remain to prevent duplicate grants
+- Apple App Store/Xcode provides native crash and hang reports; privacy-filtered nonfatal events go to the v4 backend
 - No behavioral analytics, no tracking, no ads
 
 ### Third-Party Services (disclosed in privacy policy)
 
-- **Google Gemini** (via Firebase AI Logic) — processes voice/text queries
-- **Firebase** — Auth, Firestore, Storage, App Check, Cloud Functions (credit management), Crashlytics (crash/error reporting)
-- **Apple** — Sign in with Apple, In-App Purchases, iCloud KV (settings only)
+- **Google Cloud** — Cloud Speech-to-Text, Vertex AI Gemini, Google Search grounding, and Cloud Text-to-Speech process questions through the authenticated v4 backend
+- **Firebase** — Auth, Firestore, Storage, and App Check
+- **Apple** — App Transaction identity, In-App Purchases, iCloud Key-Value Store, iCloud Keychain, and native diagnostics
+- **Formspree** — optional website support form delivery
 
 ## Conventions
 
@@ -114,9 +116,9 @@ Changes appear at `https://knowitowl.sandybrook.io` within minutes.
 
 - **No build step** — All pages use Tailwind CSS CDN with shared config inline in each file. Changes to shared styles (nav, footer, colors, Tailwind config) must be manually replicated across all three files.
 - **Formspree contact form** — Requires a Formspree account. The form action URL is hardcoded in `support.html`.
-- **App Store link** — Currently uses a placeholder `#` href on the App Store badge. Must be updated with the real App Store URL after approval.
 - **Sitemap `lastmod` dates** — Must be manually updated in `sitemap.xml` when pages are modified.
 
 ## Changelog
 
 - **2026-03-18:** Updated `privacy.html` section 4 (Google Gemini / AI Processing) to explicitly enumerate data types sent to Google's servers (voice audio recordings, text messages, conversation history up to 10 messages), reference Google Cloud Data Processing Addendum for equivalent protection, and note that the app obtains explicit in-app consent before sending data — addressing App Store rejection Guidelines 5.1.1(i) & 5.1.2(i).
+- **2026-09-04:** Updated release metadata for automatic App Transaction identity, the authenticated v4 backend, current credit packs, personal-data deletion with retained commerce records, Apple-native diagnostics, and the current Google Cloud processing path.

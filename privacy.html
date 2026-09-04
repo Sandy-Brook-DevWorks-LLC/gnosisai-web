@@ -138,7 +138,7 @@
         <div class="max-w-4xl mx-auto px-6">
             <header class="mb-16">
                 <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Privacy Policy</h1>
-                <p class="text-slate-600 dark:text-slate-400">Last Updated: March 13, 2026</p>
+                <p class="text-slate-600 dark:text-slate-400">Last Updated: September 4, 2026</p>
             </header>
 
             <div class="grid lg:grid-cols-4 gap-12">
@@ -173,7 +173,7 @@
                             KnowItOwl! ("we," "our," or "the App") is committed to protecting your privacy. This policy explains how we handle your information when you use our Apple Watch and iPhone application.
                         </p>
                         <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mt-4">
-                            <strong>Our core privacy principle:</strong> KnowItOwl! does not collect, store, or process any personally identifiable information (PII). We do not know your name, email address, phone number, or location. All conversation content and audio is encrypted on your device before it reaches our servers. We follow security best practices as recommended by Apple and Google.
+                            <strong>Our core privacy principle:</strong> KnowItOwl! does not request your name, email address, phone number, contacts, advertising identifier, or location from the app. We process an opaque app-scoped account identifier, your questions, audio, conversation context, purchase records, and limited technical diagnostics only to operate and secure the service. Questions sent for AI processing travel over HTTPS in readable form; conversation history and audio saved to your account are encrypted on your device before being stored in Firebase.
                         </p>
                     </section>
 
@@ -183,31 +183,45 @@
                             <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Account Information</h3>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li>KnowItOwl! uses Sign in with Apple for authentication. We receive only your Apple-generated user identifier — <strong>we do not request or store your name, email address, or any other personally identifiable information (PII)</strong></li>
-                                    <li>Your Apple-generated user identifier is an opaque, anonymous token that cannot be used to identify you personally</li>
+                                    <li>KnowItOwl! has no login screen. On iPhone, the app verifies Apple's signed App Transaction and creates a stable account identifier scoped to KnowItOwl!</li>
+                                    <li>Our backend derives a one-way hashed user ID from the app's bundle ID, the App Store environment, and Apple's app transaction identifier. It does not contain your Apple Account name or email address and is not used to track you across other apps or websites</li>
+                                    <li>The same app-scoped identity lets your credits and account data remain available after reinstalling KnowItOwl! or using it on another eligible device associated with the same App Store account</li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Voice Input and Conversations</h3>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li>When you speak to KnowItOwl!, your voice audio is sent directly to Google Gemini for transcription and response generation</li>
-                                    <li>Your questions and the AI responses are stored in your personal account to maintain conversation history and enable cross-device sync</li>
-                                    <li>Audio recordings (your voice messages and AI-generated voice responses) are stored in your personal account for playback</li>
+                                    <li>When you ask by voice, your recording is sent through the authenticated KnowItOwl! backend to Google Cloud Speech-to-Text. The transcript or a typed question and up to three recent messages are sent to Vertex AI Gemini, with Google Search grounding when available. Answer text is sent to Google Cloud Text-to-Speech when spoken audio is requested</li>
+                                    <li>Your questions and AI responses are encrypted on your device before being stored in your account for conversation history and cross-device sync</li>
+                                    <li>Voice recordings and AI-generated audio saved for playback are encrypted on your device before Firebase storage</li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Credit and Purchase Information</h3>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li>Credit balance and transaction history (purchases, free grants, usage) are stored in your account</li>
+                                    <li>Your credit balance and ledger history (purchases, free grants, and usage) are stored under your app-scoped account identifier</li>
+                                    <li>App Store transaction claims are retained to prevent the same consumable purchase or promotional credit from being granted more than once</li>
                                     <li>We do NOT process or store payment card details — all purchases are handled by Apple through the App Store</li>
                                 </ul>
                             </div>
                             <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Device Information</h3>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li>Basic device attestation information is used to verify that requests come from legitimate Apple devices (Firebase App Check)</li>
-                                    <li>No personal identifiers, location data, or usage patterns are collected</li>
+                                    <li>Device and app attestation tokens are processed to verify that requests come from legitimate copies of KnowItOwl! (Firebase App Check using App Attest on iPhone and DeviceCheck on Apple Watch)</li>
+                                    <li>The app does not collect precise location, contacts, advertising identifiers, or cross-app tracking data</li>
                                 </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Diagnostics</h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Apple may provide anonymized crash and hang reports through App Store Connect and Xcode Organizer when users share diagnostics with Apple</li>
+                                    <li>KnowItOwl! sends privacy-filtered operational events such as app version, platform, workflow state, duration, and error category to our authenticated backend. These events exclude questions, transcripts, answers, audio, authentication tokens, and purchase transaction IDs</li>
+                                    <li>Optional verbose logging adds additional privacy-filtered workflow breadcrumbs and can be turned off in Settings</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Support Communications</h3>
+                                <p>If you contact us by email or use the support form, we receive the name, email address, subject, and message you choose to provide so we can respond. This information is not collected by the KnowItOwl! app itself.</p>
                             </div>
                         </div>
                     </section>
@@ -220,6 +234,8 @@
                             <li>To sync your conversations and credits between your Apple Watch and iPhone</li>
                             <li>To store and play back audio recordings of conversations</li>
                             <li>To manage your credit balance and process free credit grants</li>
+                            <li>To validate App Store purchases and prevent duplicate grants</li>
+                            <li>To diagnose failures, secure the service, and improve reliability without recording conversation content in diagnostics</li>
                         </ul>
                         <div class="mt-6 p-6 rounded-2xl bg-sage-50 dark:bg-sage-900/10 border border-sage-100 dark:border-sage-800">
                             <h3 class="font-bold text-slate-900 dark:text-white mb-2">What We Do NOT Use Your Data For</h3>
@@ -236,20 +252,21 @@
                         <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">4. THIRD-PARTY SERVICES</h2>
                         <div class="space-y-4 text-slate-600 dark:text-slate-400">
                             <div>
-                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Google Gemini (AI Processing)</h3>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">KnowItOwl! Backend and Google Cloud AI Services</h3>
                                 <p>
-                                    KnowItOwl! uses Google Gemini (via Firebase AI Logic / Google Vertex AI) to process your requests and generate responses. The following data is sent to Google's servers each time you ask a question:
+                                    KnowItOwl! sends requests to an authenticated backend operated by Sandy Brook DevWorks LLC on Google Cloud Run. The backend uses Google Cloud Speech-to-Text, Vertex AI Gemini, Google Search grounding, and Google Cloud Text-to-Speech as needed to answer a question. The following data may be processed each time you ask:
                                 </p>
                                 <ul class="list-disc pl-5 space-y-2 mt-2">
                                     <li><strong>Voice audio recordings</strong> — the AAC audio captured when you speak a question (voice input only)</li>
-                                    <li><strong>Text messages</strong> — the text you type when using text input</li>
-                                    <li><strong>Conversation history</strong> — up to 10 recent messages (questions and answers) to maintain context across a conversation</li>
+                                    <li><strong>Questions</strong> — a voice transcript or the text you type</li>
+                                    <li><strong>Conversation context</strong> — up to three recent messages to maintain context</li>
+                                    <li><strong>Answer text</strong> — sent to Google Cloud Text-to-Speech when spoken audio is requested</li>
                                 </ul>
                                 <p class="mt-2">
-                                    This data is transmitted to Google's Gemini AI service solely to generate a response to your question and to synthesize text-to-speech audio output. <strong>Your data is not used to train AI models.</strong> Google's handling of this data is governed by the <a href="https://policies.google.com/privacy" class="text-sage hover:underline">Google Privacy Policy</a> and <a href="https://cloud.google.com/terms/data-processing-addendum" class="text-sage hover:underline">Google Cloud Data Processing Addendum</a>, which provide equivalent data protection to the terms under which Sandy Brook DevWorks LLC operates.
+                                    This data is transmitted over HTTPS solely to create a transcript, generate and ground an answer, and synthesize spoken audio. Sandy Brook DevWorks does not use it to train AI models. Google's handling of this data is governed by the <a href="https://policies.google.com/privacy" class="text-sage hover:underline">Google Privacy Policy</a> and <a href="https://cloud.google.com/terms/data-processing-addendum" class="text-sage hover:underline">Google Cloud Data Processing Addendum</a>. We require service providers to protect user data consistently with this policy and applicable App Store requirements.
                                 </p>
                                 <p class="mt-2">
-                                    The app obtains your explicit consent before sending any data to Google Gemini, and you may withdraw consent at any time by signing out of the app.
+                                    Before the first question, the app identifies Sandy Brook DevWorks and Google as the processors, lists the data sent, and asks for explicit permission. No question is sent unless you choose Allow &amp; Continue. You can stop future AI processing by not submitting another question, erase personal content with Delete Personal Data in Settings, or contact us for help with a privacy request.
                                 </p>
                             </div>
                             <div>
@@ -258,21 +275,25 @@
                                     We use Google Firebase services to securely store and sync your data:
                                 </p>
                                 <ul class="list-disc pl-5 space-y-2 mt-2">
-                                    <li><strong>Firebase Auth</strong> — manages your Sign in with Apple identity (with cryptographic nonce for replay attack prevention)</li>
+                                    <li><strong>Firebase Auth</strong> — manages the short-lived authenticated session for your app-scoped App Store identity</li>
                                     <li><strong>Cloud Firestore</strong> — stores your encrypted conversation messages and credit balance</li>
                                     <li><strong>Firebase Storage</strong> — stores encrypted audio recordings for playback</li>
-                                    <li><strong>Cloud Functions</strong> — handles credit operations via tamper-proof server-side transactions</li>
                                     <li><strong>Firebase App Check</strong> — verifies that requests come from legitimate Apple devices (App Attest on iPhone, DeviceCheck on Apple Watch)</li>
-                                    <li><strong>Firebase Crashlytics</strong> — records non-fatal errors (app crashes, API failures) to help us fix bugs and improve reliability. Crash reports contain technical information only (error type, stack trace, device model, OS version) — no conversation content, audio, or personally identifiable information is included</li>
                                 </ul>
                                 <p class="mt-2">
                                     All Firebase data is stored in Google Cloud infrastructure in a multi-region US deployment (nam5) for high availability (99.999% SLA). Your data is isolated under your authenticated user account and is not accessible to other users.
                                 </p>
                             </div>
                             <div>
-                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Apple (Purchases and Settings)</h3>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Apple (Identity, Purchases, Settings, and Diagnostics)</h3>
                                 <p>
-                                    In-app purchases are processed entirely by Apple through the App Store. Voice preferences are synced between devices using Apple's iCloud Key-Value Store.
+                                    Apple's signed App Transaction supplies the app-scoped identifier used to create your account without a login screen. In-app purchases are processed entirely by Apple through the App Store. Voice preferences are synced using iCloud Key-Value Store, and encryption keys can sync using iCloud Keychain. Apple may provide anonymized crash and hang diagnostics through App Store Connect and Xcode when users share diagnostics with Apple.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Formspree (Support Requests)</h3>
+                                <p>
+                                    If you submit the optional web support form, Formspree processes the name, email address, subject, and message you enter so the request can be delivered to us. You can contact us directly by email instead. See the <a href="https://formspree.io/legal/privacy-policy/" class="text-sage hover:underline">Formspree Privacy Policy</a>.
                                 </p>
                             </div>
                             <p class="mt-2">
@@ -284,7 +305,7 @@
                                 <li>Apple Privacy Policy: <a href="https://www.apple.com/legal/privacy/" class="text-sage hover:underline">https://www.apple.com/legal/privacy/</a></li>
                             </ul>
                             <p class="font-medium text-slate-900 dark:text-white mt-4">
-                                Important: Your conversations are sent to Google Gemini in real-time to generate responses. This data transmission is necessary for the app to function. No data from any of these services is used by Sandy Brook DevWorks for AI training, marketing, or any purpose beyond operating KnowItOwl!.
+                                Important: Your question, voice audio when used, and recent conversation context are processed in readable form by the KnowItOwl! backend and applicable Google Cloud AI services in real time. This processing is necessary to generate an answer. Saved conversation content and audio are separately encrypted on your device before Firebase storage.
                             </p>
                         </div>
                     </section>
@@ -295,17 +316,21 @@
                             <div>
                                 <h3 class="font-bold text-slate-900 dark:text-white mb-2">Where Your Data Lives</h3>
                                 <ul class="list-disc pl-5 space-y-2">
-                                    <li>Your conversation messages, credit balance, and audio recordings are stored in Google Firebase (Cloud Firestore and Firebase Storage) under your authenticated user account</li>
+                                    <li>Encrypted conversation messages, your credit balance, and encrypted audio recordings are stored in Google Firebase under your app-scoped account identifier</li>
                                     <li>Data is stored in Google Cloud infrastructure in a multi-region US deployment for high availability and durability</li>
                                     <li>Your data is isolated to your account and is not accessible to other users or to Sandy Brook DevWorks staff in the normal course of operations</li>
                                     <li>Voice preferences are synced via Apple's iCloud Key-Value Store</li>
                                 </ul>
                             </div>
                             <div>
-                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Data Control</h3>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Retention and Data Control</h3>
                                 <ul class="list-disc pl-5 space-y-2">
                                     <li>You can delete individual messages or all conversation history at any time within the app</li>
-                                    <li>Uninstalling the app removes local data from your devices</li>
+                                    <li>Delete Personal Data in iPhone Settings permanently removes your conversation messages, stored audio, pending interaction records, local encryption key, and Firebase Auth user record</li>
+                                    <li>Your exact credit balance, credit ledger, and redeemed App Store transaction claims are retained after personal-data deletion or reinstallation. These commerce records are kept for the life of the service, or longer if required by law, so purchases and promotional credits cannot be granted more than once</li>
+                                    <li>Privacy-filtered operational diagnostics are retained only as long as reasonably needed for security, reliability, and troubleshooting under our current Google Cloud logging settings</li>
+                                    <li>Support messages are retained while needed to answer the request, maintain reasonable support records, and meet legal obligations</li>
+                                    <li>Uninstalling the app removes local app data but does not by itself delete encrypted cloud content or retained commerce records</li>
                                 </ul>
                             </div>
                             <div>
@@ -323,8 +348,8 @@
                             <li>We do NOT sell, rent, license, or share your personal information with third parties for marketing, advertising, profiling, or AI training purposes</li>
                             <li>We do NOT provide your data to data brokers or aggregators under any circumstances</li>
                             <li>We do NOT use advertising or tracking technologies</li>
-                            <li>Data is shared only with Google Firebase/Gemini as necessary to operate the app (data storage, AI response generation, crash reporting)</li>
-                            <li>Firebase Crashlytics receives technical error data only (no conversations, audio, or PII) to help us improve app reliability</li>
+                            <li>Data is disclosed to Google Cloud and Firebase only as necessary for authentication, storage, transcription, answer generation, search grounding, text-to-speech, security, and privacy-filtered operational diagnostics</li>
+                            <li>Optional web support requests are disclosed to Formspree so they can be delivered to us</li>
                             <li>We receive only aggregate, non-identifying statistics from Apple App Store Connect (download counts, basic usage metrics)</li>
                         </ul>
                     </section>
@@ -334,7 +359,9 @@
                         <ul class="list-disc pl-5 space-y-2 text-slate-600 dark:text-slate-400">
                             <li>We do NOT use third-party analytics or tracking tools for user behavior or usage patterns</li>
                             <li>We do NOT track your behavior or usage patterns</li>
-                            <li>We use <strong>Firebase Crashlytics</strong> solely for crash reporting and error tracking to improve app stability. Crash reports contain only technical diagnostic data (error type, stack trace, device model, OS version) and your anonymous Firebase user ID. No conversation content, audio recordings, or personally identifiable information is ever included in crash reports</li>
+                            <li>Apple may provide anonymized crash and hang reports through App Store Connect and Xcode Organizer when a user chooses to share diagnostics with Apple</li>
+                            <li>Our authenticated backend receives allow-listed operational events for errors and workflow health. These events do not contain questions, transcripts, answers, audio, authentication tokens, or purchase transaction IDs</li>
+                            <li>Optional verbose logging can be disabled in the iPhone app's Settings</li>
                             <li>Basic app statistics (downloads, active devices) are provided by Apple and do not identify individual users</li>
                             <li>No cookies or tracking pixels are used</li>
                         </ul>
@@ -353,7 +380,9 @@
                             <p>You have the right to:</p>
                             <ul class="list-disc pl-5 space-y-2">
                                 <li>Delete individual messages or all conversation history within the app</li>
-                                <li>Sign out at any time from the iPhone app Settings</li>
+                                <li>Use Delete Personal Data in iPhone Settings to erase conversation content, stored audio, the encryption key, and the current Firebase Auth user record</li>
+                                <li>Stop future AI processing by not submitting additional questions</li>
+                                <li>Ask us to help with access, deletion, or consent questions; retained commerce records remain subject to the limitations described above</li>
                                 <li>Stop using the app at any time</li>
                                 <li>Contact us with privacy questions or concerns</li>
                             </ul>
@@ -366,22 +395,20 @@
                             <p>We follow security best practices as recommended by Apple and Google, implementing defense in depth across every layer of the app:</p>
                             <ul class="list-disc pl-5 space-y-2">
                                 <li>All data is transmitted over HTTPS/TLS encrypted connections</li>
-                                <li><strong>Client-side end-to-end encryption</strong> — all conversation text and audio files are encrypted on your device using AES-256-GCM (via Apple CryptoKit) before leaving the device. Firestore and Firebase Storage only ever store ciphertext. Your encryption key is stored in iCloud Keychain and never leaves your devices</li>
-                                <li><strong>No PII stored server-side</strong> — we do not collect, store, or process personally identifiable information. Your account is identified only by an opaque Apple-generated token</li>
-                                <li><strong>Sign in with Apple with cryptographic nonce</strong> — prevents token replay attacks, following Apple's recommended authentication practices</li>
-                                <li><strong>Apple ID credential revocation</strong> — the app automatically detects and responds if you revoke KnowItOwl! access in your Apple ID settings, immediately signing you out</li>
+                                <li><strong>Client-side encryption for saved content</strong> — conversation text and audio saved to your account are encrypted on your device using AES-256-GCM before Firebase storage. AI requests must be processed in readable form by the backend and Google Cloud AI services to generate transcripts, answers, and audio</li>
+                                <li><strong>App-scoped identity</strong> — the backend validates Apple's signed App Transaction and derives a one-way hashed user ID without requesting your Apple Account name or email address</li>
                                 <li><strong>Firebase App Check</strong> — verifies that every request originates from a legitimate Apple device using hardware attestation (App Attest on iPhone, DeviceCheck on Apple Watch), preventing unauthorized API access</li>
                                 <li><strong>Firebase Auth</strong> — ensures that only you can access your data through authenticated sessions</li>
-                                <li><strong>Firestore security rules</strong> — enforce that users can only read and write their own data. Credit operations are server-side only (read-only for clients) via Cloud Functions with tamper-proof validation</li>
+                                <li><strong>Server-side credit validation</strong> — the backend verifies signed App Store transactions and performs credit operations in tamper-resistant Firestore transactions; clients cannot directly grant credits</li>
                                 <li><strong>Firebase Storage security rules</strong> — restrict audio file access to the owning user, with a 5MB file size limit and content type validation</li>
                                 <li><strong>User-scoped encryption keys</strong> — encryption keys are scoped to your user account, preventing cross-user key sharing on shared devices</li>
                                 <li><strong>Structured logging with privacy annotations</strong> — all diagnostic logs use Apple's os.Logger framework with <code>privacy: .private</code> annotations, ensuring sensitive data (balances, transaction IDs) is redacted in release builds</li>
-                                <li>No API keys are stored on or distributed to client devices — Firebase manages all service authentication server-side</li>
+                                <li>No Google AI service credentials are stored on or distributed to client devices; provider access is restricted to the authenticated backend</li>
                             </ul>
                             <div class="p-6 rounded-2xl bg-sage-50 dark:bg-sage-900/10 border border-sage-100 dark:border-sage-800">
-                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">End-to-End Encryption</h3>
+                                <h3 class="font-bold text-slate-900 dark:text-white mb-2">Encrypted Storage</h3>
                                 <p>
-                                    All conversation messages and audio files are encrypted on your device using <strong>AES-256-GCM</strong> (via Apple CryptoKit) before being stored in Firebase. This means that even if Firebase data were accessed, it would be unreadable without your personal encryption key, which is stored exclusively in your iCloud Keychain and syncs only to your own Apple devices. Sandy Brook DevWorks cannot read your conversations or listen to your audio recordings.
+                                    Conversation messages and audio files saved to your account are encrypted on your device using <strong>AES-256-GCM</strong> (via Apple CryptoKit) before being stored in Firebase. The encryption key is stored in your iCloud Keychain and syncs only through Apple's Keychain services. This storage protection is separate from real-time AI processing, during which the current question, applicable audio, and recent context must be readable by the KnowItOwl! backend and Google Cloud AI services.
                                 </p>
                             </div>
                         </div>
@@ -403,7 +430,7 @@
                             <ul class="list-disc pl-5 space-y-2">
                                 <li>Posting the new policy at knowitowl.sandybrook.io/privacy</li>
                                 <li>Updating the "Last Updated" date</li>
-                                <li>(Optional) In-app notification for material changes</li>
+                                <li>Providing an in-app notice when a material change requires renewed consent</li>
                             </ul>
                             <p>
                                 Continued use of the app after changes constitutes acceptance of the updated policy.
@@ -419,7 +446,7 @@
                             </p>
                             <ul class="list-disc pl-5 space-y-2">
                                 <li>Request information about data we collect about you</li>
-                                <li>Delete your conversation data directly within the app</li>
+                                <li>Delete eligible personal content directly within the app; commerce records are retained as described in Section 5</li>
                                 <li>Not be discriminated against for exercising your privacy rights</li>
                             </ul>
                             <p>
